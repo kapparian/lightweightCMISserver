@@ -222,6 +222,9 @@ public class FilePersistence extends PersistenceManager {
 			return 0;
 
 		try {
+			File file = new File(newFile.getAbsolutePath());
+			if (file.exists())
+				return 0;
 			Files.copy(stream, Paths.get(newFile.getAbsolutePath()),
 					StandardCopyOption.REPLACE_EXISTING);
 			int length = (int) newFile.length();
