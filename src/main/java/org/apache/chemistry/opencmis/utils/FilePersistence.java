@@ -560,7 +560,7 @@ public class FilePersistence extends PersistenceManager {
 		// replace folderName by its objectId in path
 		if (so instanceof Fileable) {
 			if (((Fileable) so).getParentIds().size() > 0) {
-				path = replacePathByObjectId(path, so, storedObjectMap);
+				path = replacePathByObjectId(path.replace("\\", "/"), so, storedObjectMap);
 			}
 		}
 
